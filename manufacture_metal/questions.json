@@ -1,0 +1,122 @@
+[
+  {
+    "question": "一酸化炭素 $\\mathrm{CO}$ の製法",
+    "choices": ["ギ酸 $\\mathrm{HCOOH}$", "銅 $\\mathrm{Cu}$", "炭酸カルシウム $\\mathrm{CaCO_3}$", "硫化鉄(II) $\\mathrm{FeS}$", "酸化マンガン(IV) $\\mathrm{MnO_2}$", "さらし粉 $\\mathrm{CaCl(ClO)\\cdot H_2O}$", "塩化ナトリウム $\\mathrm{NaCl}$", "フッ化カルシウム $\\mathrm{CaF_2}$", "塩化アンモニウム $\\mathrm{NH_4Cl}$", "水酸化カルシウム $\\mathrm{Ca(OH)_2}$", "濃塩酸 $\\mathrm{HCl}$", "希塩酸 $\\mathrm{HCl}$","濃硝酸 $\\mathrm{HNO_3}$", "希硝酸 $\\mathrm{HNO_3}$", "濃硫酸 $\\mathrm{H_2SO_4}$", "強酸", "加熱"],
+    "correct": ["ギ酸 $\\mathrm{HCOOH}$", "濃硫酸 $\\mathrm{H_2SO_4}$", "加熱"],
+    "exp": "$\\mathrm{HCOOH\\rightarrow CO\\uparrow+H_2O}$. 濃硫酸の脱水作用."
+  },
+  {
+    "question": "二酸化窒素 $\\mathrm{NO_2}$ の製法",
+    "choices": ["ギ酸 $\\mathrm{HCOOH}$", "銅 $\\mathrm{Cu}$", "炭酸カルシウム $\\mathrm{CaCO_3}$", "硫化鉄(II) $\\mathrm{FeS}$", "酸化マンガン(IV) $\\mathrm{MnO_2}$", "さらし粉 $\\mathrm{CaCl(ClO)\\cdot H_2O}$", "塩化ナトリウム $\\mathrm{NaCl}$", "フッ化カルシウム $\\mathrm{CaF_2}$", "塩化アンモニウム $\\mathrm{NH_4Cl}$", "水酸化カルシウム $\\mathrm{Ca(OH)_2}$", "濃塩酸 $\\mathrm{HCl}$", "希塩酸 $\\mathrm{HCl}$","濃硝酸 $\\mathrm{HNO_3}$", "希硝酸 $\\mathrm{HNO_3}$", "濃硫酸 $\\mathrm{H_2SO_4}$", "強酸", "加熱"],
+    "correct": ["銅 $\\mathrm{Cu}$", "濃硝酸 $\\mathrm{HNO_3}$"],
+    "exp": "$\\mathrm{Cu+4HNO_3(濃)\\rightarrow Cu(NO_3)_2+2H_2O+2NO_2\\uparrow}$. 酸化還元反応. 銅は還元剤, 硝酸は酸化力をもつ."
+  },
+  {
+    "question": "一酸化窒素 $\\mathrm{NO}$ の製法",
+    "choices": ["ギ酸 $\\mathrm{HCOOH}$", "銅 $\\mathrm{Cu}$", "炭酸カルシウム $\\mathrm{CaCO_3}$", "硫化鉄(II) $\\mathrm{FeS}$", "酸化マンガン(IV) $\\mathrm{MnO_2}$", "さらし粉 $\\mathrm{CaCl(ClO)\\cdot H_2O}$", "塩化ナトリウム $\\mathrm{NaCl}$", "フッ化カルシウム $\\mathrm{CaF_2}$", "塩化アンモニウム $\\mathrm{NH_4Cl}$", "水酸化カルシウム $\\mathrm{Ca(OH)_2}$", "濃塩酸 $\\mathrm{HCl}$", "希塩酸 $\\mathrm{HCl}$","濃硝酸 $\\mathrm{HNO_3}$", "希硝酸 $\\mathrm{HNO_3}$", "濃硫酸 $\\mathrm{H_2SO_4}$", "強酸", "加熱"],
+    "correct": ["銅 $\\mathrm{Cu}$", "希硝酸 $\\mathrm{HNO_3}$"],
+    "exp": "$\\mathrm{3Cu+8HNO_3(希)\\rightarrow 3Cu(NO_3)_2+4H_2O+2NO\\uparrow}$. 酸化還元反応. 銅は還元剤, 硝酸は酸化力をもつ."
+  },
+  {
+    "question": "塩素 $\\mathrm{Cl_2}$ の製法",
+    "choices": ["ギ酸 $\\mathrm{HCOOH}$", "銅 $\\mathrm{Cu}$", "炭酸カルシウム $\\mathrm{CaCO_3}$", "硫化鉄(II) $\\mathrm{FeS}$", "酸化マンガン(IV) $\\mathrm{MnO_2}$", "さらし粉 $\\mathrm{CaCl(ClO)\\cdot H_2O}$", "塩化ナトリウム $\\mathrm{NaCl}$", "フッ化カルシウム $\\mathrm{CaF_2}$", "塩化アンモニウム $\\mathrm{NH_4Cl}$", "水酸化カルシウム $\\mathrm{Ca(OH)_2}$", "濃塩酸 $\\mathrm{HCl}$", "希塩酸 $\\mathrm{HCl}$","濃硝酸 $\\mathrm{HNO_3}$", "希硝酸 $\\mathrm{HNO_3}$", "濃硫酸 $\\mathrm{H_2SO_4}$", "強酸", "加熱"],
+    "correct": ["酸化マンガン(IV) $\\mathrm{MnO_2}$", "濃塩酸 $\\mathrm{HCl}$", "加熱"],
+    "exp": "$\\mathrm{MnO_2+4HCl\\rightarrow MnCl_2+2H_2O+Cl_2\\uparrow}$. 酸化還元反応. 酸化マンガンは酸化剤, 塩酸は還元剤."
+  },
+  {
+    "question": "塩化水素 $\\mathrm{HCl}$ の製法",
+    "choices": ["ギ酸 $\\mathrm{HCOOH}$", "銅 $\\mathrm{Cu}$", "炭酸カルシウム $\\mathrm{CaCO_3}$", "硫化鉄(II) $\\mathrm{FeS}$", "酸化マンガン(IV) $\\mathrm{MnO_2}$", "さらし粉 $\\mathrm{CaCl(ClO)\\cdot H_2O}$", "塩化ナトリウム $\\mathrm{NaCl}$", "フッ化カルシウム $\\mathrm{CaF_2}$", "塩化アンモニウム $\\mathrm{NH_4Cl}$", "水酸化カルシウム $\\mathrm{Ca(OH)_2}$", "濃塩酸 $\\mathrm{HCl}$", "希塩酸 $\\mathrm{HCl}$","濃硝酸 $\\mathrm{HNO_3}$", "希硝酸 $\\mathrm{HNO_3}$", "濃硫酸 $\\mathrm{H_2SO_4}$", "強酸", "加熱"],
+    "correct": ["塩化ナトリウム $\\mathrm{NaCl}$", "濃硫酸 $\\mathrm{H_2SO_4}$", "加熱"],
+    "exp": "$\\mathrm{NaCl+H_2SO_4\\rightarrow NaHSO_4+HCl\\uparrow}$. 揮発性の酸の遊離."
+  },
+  {
+    "question": "二酸化硫黄 $\\mathrm{SO_2}$ の製法",
+    "choices": ["ギ酸 $\\mathrm{HCOOH}$", "銅 $\\mathrm{Cu}$", "炭酸カルシウム $\\mathrm{CaCO_3}$", "硫化鉄(II) $\\mathrm{FeS}$", "酸化マンガン(IV) $\\mathrm{MnO_2}$", "さらし粉 $\\mathrm{CaCl(ClO)\\cdot H_2O}$", "塩化ナトリウム $\\mathrm{NaCl}$", "フッ化カルシウム $\\mathrm{CaF_2}$", "塩化アンモニウム $\\mathrm{NH_4Cl}$", "水酸化カルシウム $\\mathrm{Ca(OH)_2}$", "濃塩酸 $\\mathrm{HCl}$", "希塩酸 $\\mathrm{HCl}$","濃硝酸 $\\mathrm{HNO_3}$", "希硝酸 $\\mathrm{HNO_3}$", "濃硫酸 $\\mathrm{H_2SO_4}$", "強酸", "加熱"],
+    "correct": ["銅 $\\mathrm{Cu}$", "濃硫酸 $\\mathrm{H_2SO_4}$", "加熱"],
+    "exp": "$\\mathrm{Cu+2H_2SO_4\\rightarrow CuSO_4+2H_2O+SO_2\\uparrow}$. 酸化還元反応. 濃硫酸は酸化剤, 銅は還元剤."
+  },
+  {
+    "question": "アンモニア $\\mathrm{NH_3}$ の製法",
+    "choices": ["ギ酸 $\\mathrm{HCOOH}$", "銅 $\\mathrm{Cu}$", "炭酸カルシウム $\\mathrm{CaCO_3}$", "硫化鉄(II) $\\mathrm{FeS}$", "酸化マンガン(IV) $\\mathrm{MnO_2}$", "さらし粉 $\\mathrm{CaCl(ClO)\\cdot H_2O}$", "塩化ナトリウム $\\mathrm{NaCl}$", "フッ化カルシウム $\\mathrm{CaF_2}$", "塩化アンモニウム $\\mathrm{NH_4Cl}$", "水酸化カルシウム $\\mathrm{Ca(OH)_2}$", "濃塩酸 $\\mathrm{HCl}$", "希塩酸 $\\mathrm{HCl}$","濃硝酸 $\\mathrm{HNO_3}$", "希硝酸 $\\mathrm{HNO_3}$", "濃硫酸 $\\mathrm{H_2SO_4}$", "強酸", "加熱"],
+    "correct": ["塩化アンモニウム $\\mathrm{NH_4Cl}$", "水酸化カルシウム $\\mathrm{Ca(OH)_2}$", "加熱"],
+    "exp": "$\\mathrm{2NH_4Cl+Ca(OH)_2\\rightarrow CaCl_2+2H_2O+2NH_3\\uparrow}$. 弱塩基遊離反応."
+  },
+  {
+    "question": "二酸化炭素 $\\mathrm{CO_2}$ の製法",
+    "choices": ["ギ酸 $\\mathrm{HCOOH}$", "銅 $\\mathrm{Cu}$", "炭酸カルシウム $\\mathrm{CaCO_3}$", "硫化鉄(II) $\\mathrm{FeS}$", "酸化マンガン(IV) $\\mathrm{MnO_2}$", "さらし粉 $\\mathrm{CaCl(ClO)\\cdot H_2O}$", "塩化ナトリウム $\\mathrm{NaCl}$", "フッ化カルシウム $\\mathrm{CaF_2}$", "塩化アンモニウム $\\mathrm{NH_4Cl}$", "水酸化カルシウム $\\mathrm{Ca(OH)_2}$", "濃塩酸 $\\mathrm{HCl}$", "希塩酸 $\\mathrm{HCl}$", "濃硝酸 $\\mathrm{HNO_3}$", "希硝酸 $\\mathrm{HNO_3}$", "濃硫酸 $\\mathrm{H_2SO_4}$", "強酸", "加熱"],
+    "correct": ["炭酸カルシウム $\\mathrm{CaCO_3}$", "希塩酸 $\\mathrm{HCl}$"],
+    "exp": "$\\mathrm{CaCO_3+2HCl\\rightarrow CaCl_2+H_2O+CO_2\\uparrow}$. 弱酸遊離反応."
+  },
+  {
+    "question": "フッ化水素 $\\mathrm{HF}$ の製法",
+    "choices": ["ギ酸 $\\mathrm{HCOOH}$", "銅 $\\mathrm{Cu}$", "炭酸カルシウム $\\mathrm{CaCO_3}$", "硫化鉄(II) $\\mathrm{FeS}$", "酸化マンガン(IV) $\\mathrm{MnO_2}$", "さらし粉 $\\mathrm{CaCl(ClO)\\cdot H_2O}$", "塩化ナトリウム $\\mathrm{NaCl}$", "フッ化カルシウム $\\mathrm{CaF_2}$", "塩化アンモニウム $\\mathrm{NH_4Cl}$", "水酸化カルシウム $\\mathrm{Ca(OH)_2}$", "濃塩酸 $\\mathrm{HCl}$", "希塩酸 $\\mathrm{HCl}$", "濃硝酸 $\\mathrm{HNO_3}$", "希硝酸 $\\mathrm{HNO_3}$", "濃硫酸 $\\mathrm{H_2SO_4}$", "強酸", "加熱"],
+    "correct": ["フッ化カルシウム $\\mathrm{CaF_2}$", "濃硫酸 $\\mathrm{H_2SO_4}$", "加熱"],
+    "exp": "$\\mathrm{CaF_2+H_2SO_4\\rightarrow CaSO_4+2HF\\uparrow}$."
+  },
+  {
+    "question": "硫化水素 $\\mathrm{H_2S}$ の製法",
+    "choices": ["ギ酸 $\\mathrm{HCOOH}$", "銅 $\\mathrm{Cu}$", "炭酸カルシウム $\\mathrm{CaCO_3}$", "硫化鉄(II) $\\mathrm{FeS}$", "酸化マンガン(IV) $\\mathrm{MnO_2}$", "さらし粉 $\\mathrm{CaCl(ClO)\\cdot H_2O}$", "塩化ナトリウム $\\mathrm{NaCl}$", "フッ化カルシウム $\\mathrm{CaF_2}$", "塩化アンモニウム $\\mathrm{NH_4Cl}$", "水酸化カルシウム $\\mathrm{Ca(OH)_2}$", "濃塩酸 $\\mathrm{HCl}$", "希塩酸 $\\mathrm{HCl}$", "濃硝酸 $\\mathrm{HNO_3}$", "希硝酸 $\\mathrm{HNO_3}$", "濃硫酸 $\\mathrm{H_2SO_4}$", "強酸", "加熱"],
+    "correct": ["硫化鉄(II) $\\mathrm{FeS}$", "強酸"],
+    "exp": "$\\mathrm{FeS+2HCl\\rightarrow FeCl_2+H_2S\\uparrow}$.<br>$\\mathrm{FeS+H_2SO_4\\rightarrow FeSO_4+H_2S\\uparrow}$. 弱酸遊離反応."
+  },
+  {
+    "question": "不動態を形成する金属",
+    "choices": ["アルミニウム $\\mathrm{Al}$", "鉄 $\\mathrm{Fe}$", "ニッケル $\\mathrm{Ni}$", "鉛 $\\mathrm{Pb}$", "銀 $\\mathrm{Ag}$", "亜鉛 $\\mathrm{Zn}$"],
+    "correct": ["アルミニウム $\\mathrm{Al}$", "鉄 $\\mathrm{Fe}$", "ニッケル $\\mathrm{Ni}$"],
+    "exp": "アルミニウム, 鉄, ニッケル, クロム, コバルト."
+  },
+  {
+    "question": "炭酸ナトリウム $\\mathrm{Na_2CO_3} の工業的製法$",
+    "choices": ["アンモニアソーダ法", "接触法", "オストワルト法", "ハーバーボッシュ法"],
+    "correct": ["アンモニアソーダ法"],
+    "exp": "$\\mathrm{CO_2+NH_3+H_2O\\rightarrow HCO_3^{-}+NH_4^{+}}$.<br>$\\mathrm{2NaHCO_3\\rightarrow Na_2CO_3+H_2O+CO_2}$."
+  },
+  {
+    "question": "酸性条件下で硫化水素 $\\mathrm{H_2S}$ を通じた際に沈殿を生じる",
+    "choices": ["$\\mathrm{Cu^{2+}}$", "$\\mathrm{Ag^{+}}$", "$\\mathrm{Pb^{2+}}$", "$\\mathrm{Fe^{3+}}$", "$\\mathrm{Fe^{2+}}$", "$\\mathrm{Na^{+}}$", "$\\mathrm{Mg^{2+}}$"],
+    "correct": ["$\\mathrm{Cu^{2+}}$", "$\\mathrm{Ag^{+}}$", "$\\mathrm{Pb^{2+}}$"],
+    "exp": "$\\mathrm{Sn^{2+}, Pb^{2+}, Cu^{2+}, Ag^{+}}$ (イオン化列で $\\mathrm{Sn}$ 以降)は液性にかかわらず硫化物の沈殿をつくる."
+  },
+  {
+    "question": "塩基性条件下で硫化水素 $\\mathrm{H_2S}$ を通じた際に沈殿を生じる$",
+    "choices": ["$\\mathrm{Cu^{2+}}$", "$\\mathrm{Ag^{+}}$", "$\\mathrm{Pb^{2+}}$", "$\\mathrm{Ag^{+}}$", "$\\mathrm{Zn^{2+}}$", "$\\mathrm{Fe^{2+}}$", "$\\mathrm{Ni^{2+}}$", "$\\mathrm{Fe^{3+}}$", "$\\mathrm{Fe^{2+}}$"],
+    "correct": ["$\\mathrm{Cu^{2+}}$", "$\\mathrm{Ag^{+}}$", "$\\mathrm{Pb^{2+}}$"],
+    "exp": "$\\mathrm{Zn^{2+}, Fe^{2+}, Ni^{2+} (イオン化列で $\\mathrm{Zn}$ から $\\mathrm{Ni}$)塩基性および中性条件下で硫化物の沈殿をつくる."
+  },
+  {
+    "question": "炭酸イオン $\\mathrm{CO_3^{2-}}$ を通じても沈殿しないもの",
+    "choices": ["$\\mathrm{Na^{+}}$", "$\\mathrm{K^{+}}$", "$\\mathrm{Mg^{2+}}$", "$\\mathrm{Al^{3+}}$", "$\\mathrm{Zn^{2+}}$", "$\\mathrm{Ag^{+}}$"],
+    "correct": ["$\\mathrm{Na^{+}}$", "$\\mathrm{K^{+}}$"],
+    "exp": "$\\mathrm{Na^{+}, K^{+}}$ は沈殿しない."
+  },
+  {
+    "question": "$\\mathrm{Cl^{-}}$ によって沈殿するもの",
+    "choices": ["$\\mathrm{Ag^{+}}$", "$\\mathrm{Pb^{2+}}$", "$\\mathrm{Na^{+}}$", "$\\mathrm{K^{+}}$", "$\\mathrm{Mg^{2+}}$", "$\\mathrm{Al^{3+}}$", "$\\mathrm{Zn^{2+}}$"],
+    "correct": ["$\\mathrm{Ag^{+}}$", "$\\mathrm{Pb^{2+}}$"],
+    "exp": "$\\mathrm{AgCl}$ は感光性があり, 光を当てると黒くなる. また, アンモニア水に溶解し錯イオンをつくる."
+  },
+  {
+    "question": "少量のアンモニア水を加えた際に<b>水酸化物</b>が沈殿するもの",
+    "choices": ["$\\mathrm{Mg^{2+}}$", "$\\mathrm{Al^{3+}}$", "$\\mathrm{Zn^{2+}}$", "$\\mathrm{Cu^{2+}}$", "$\\mathrm{Ag^{+}}$", "$\\mathrm{K^{+}}$", "$\\mathrm{Na^{+}}$"],
+    "correct": ["$\\mathrm{Mg^{2+}}$", "$\\mathrm{Al^{3+}}$", "$\\mathrm{Zn^{2+}}$", "$\\mathrm{Cu^{2+}}$"],
+    "exp": "イオン化列で $\\mathrm{Mg}$ から $\\mathrm{Cu}$ までは水酸化物の沈殿をつくる. $\\mathrm{Ag}$ は酸化物が沈殿."
+  },
+  {
+    "question": "少量のアンモニア水を加えた際に<b>酸化物</b>が沈殿するもの",
+    "choices": ["$\\mathrm{Mg^{2+}}$", "$\\mathrm{Al^{3+}}$", "$\\mathrm{Zn^{2+}}$", "$\\mathrm{Cu^{2+}}$", "$\\mathrm{Ag^{+}}$", "$\\mathrm{K^{+}}$", "$\\mathrm{Na^{+}}$"],
+    "correct": ["$\\mathrm{Ag^{+}}$"],
+    "exp": "$\\mathrm{Ag}$ は酸化物が沈殿."
+  },
+  {
+    "question": "過剰のアンモニア水を加えた際に沈殿が錯イオンをつくって再溶解するもの",
+    "choices": ["$\\mathrm{Zn^{2+}}$", "$\\mathrm{Cu^{2+}}$", "$\\mathrm{Ag^{+}}$", "$\\mathrm{Fe^{3+}}$", "$\\mathrm{Fe^{2+}}$", "$\\mathrm{Mg^{2+}}$", "$\\mathrm{Pb^{2+}}$", "$\\mathrm{Ni^{2+}}$"],
+    "correct": ["$\\mathrm{Zn^{2+}}$", "$\\mathrm{Cu^{2+}}$", "$\\mathrm{Ag^{+}}$"],
+    "exp": "$\\mathrm{Zn^{2+}, Cu^{2+}, Ag^{+}}$ は過剰のアンモニア水によって沈殿が再溶解.<br>$\\mathrm{Zn^{2+}\\rightarrow Zn(OH)_2\\rightarrow [Zn(NH_3)_4]^{2+}}$<br>$\\mathrm{Cu^{2+}\\rightarrow Cu(OH)_2\\rightarrow [Cu(NH_3)_4]^{2+}}$<br>$\\mathrm{Ag^{+}\\rightarrow Ag_2O\\rightarrow [Ag(NH_3)_2]^{+}}$"
+  },
+  {
+    "question": "過剰の水酸化ナトリウム水溶液を加えた際に沈殿が錯イオンをつくって再溶解するもの",
+    "choices": ["$\\mathrm{Al^{3+}}$", "$\\mathrm{Zn^{2+}}$", "$\\mathrm{Cu^{2+}}$", "$\\mathrm{Ag^{2+}}$", "$\\mathrm{Pb^{2+}}$", "$\\mathrm{Ni^{2+}}$", "$\\mathrm{Fe^{2+}}$"],
+    "correct": ["$\\mathrm{Al^{3+}}$", "$\\mathrm{Zn^{2+}}$"],
+    "exp": "$\\mathrm{Al^{3+}, Zn^{2+}}$ は過剰の水酸化ナトリウム水溶液によって沈殿が再溶解. <br>$\\mathrm{Zn^{2+}\\rightarrow Zn(OH)_2\\rightarrow [Zn(OH)_4]^{2-}}$<br>$\\mathrm{Al^{3+}\\rightarrow Al(OH)_3\\rightarrow [Al(OH)_4]^{-}}$"
+  }
+]

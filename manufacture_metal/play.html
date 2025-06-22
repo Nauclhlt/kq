@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>クイズアプリ</title>
+    <style>
+      /* 変数の定義 */
+      :root {
+        --primary-color: #4a90e2; /* 主要な色（青） */
+        --secondary-color: #50e3c2; /* 補助的な色（エメラルドグリーン） */
+        --text-color: #333; /* 標準のテキスト色 */
+        --background-color: #f0f2f5; /* 全体の背景色 */
+        --card-background: #ffffff; /* カードの背景色 */
+        --shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 標準のシャドウ */
+        --correct-bg: #e6ffe6; /* 正解時の背景色（薄い緑） */
+        --incorrect-bg: #ffe6e6; /* 不正解時の背景色（薄い赤） */
+      }
+
+      /* Bodyの基本スタイル */
+      body {
+        font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* フォントファミリー */
+        margin: 0; /* マージンをリセット */
+        padding: 20px; /* パディング */
+        background-color: var(--background-color); /* 背景色 */
+        color: var(--text-color); /* テキスト色 */
+        display: flex; /* Flexboxで中央揃え */
+        justify-content: center; /* 水平方向の中央揃え */
+        align-items: center; /* 垂直方向の中央揃えに変更 */
+        min-height: 100vh; /* 最小高さをビューポートの高さに */
+        box-sizing: border-box; /* パディングとボーダーを幅に含める */
+      }
+
+      /* コンテナのスタイル */
+      .container {
+        background-color: var(--card-background); /* 背景色 */
+        border-radius: 12px; /* 角丸 */
+        box-shadow: var(--shadow); /* シャドウ */
+        padding: 30px; /* パディング */
+        max-width: 700px; /* 最大幅 */
+        width: 100%; /* 幅を100%に */
+        box-sizing: border-box; /* パディングとボーダーを幅に含める */
+        margin-top: 0; /* 中央揃えのためマージンを調整 */
+      }
+
+      /* 問題表示エリア */
+      #question-area {
+        margin-bottom: 25px; /* 下部マージン */
+      }
+
+      /* 問題文のスタイル */
+      #question-text {
+        font-size: 1.5em; /* フォントサイズ */
+        margin-bottom: 20px; /* 下部マージン */
+        line-height: 1.6; /* 行の高さ */
+        color: var(--primary-color); /* 色 */
+        text-align: center; /* 中央揃え */
+      }
+
+      /* 選択肢コンテナのスタイル */
+      #choices-container {
+        display: flex; /* Flexboxで配置 */
+        flex-wrap: wrap; /* 折り返し */
+        gap: 15px; /* 要素間の隙間 */
+        justify-content: center; /* 中央揃え */
+        margin-bottom: 30px; /* 下部マージン */
+      }
+
+      /* 選択肢ボタンのスタイル */
+      .choice-button {
+        background-color: var(--card-background); /* 背景色 */
+        border: 2px solid #ddd; /* ボーダー */
+        border-radius: 8px; /* 角丸 */
+        padding: 12px 20px; /* パディング */
+        font-size: 1.1em; /* フォントサイズ */
+        cursor: pointer; /* カーソルをポインターに */
+        transition: all 0.3s ease; /* アニメーション */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* シャドウ */
+        flex-grow: 1; /* 均等に幅を広げる */
+        text-align: center; /* テキスト中央揃え */
+        white-space: nowrap; /* テキストの折り返しを防ぐ */
+        overflow: hidden; /* オーバーフローを隠す */
+        text-overflow: ellipsis; /* 省略記号を表示 */
+        max-width: calc(50% - 7.5px); /* 2列表示の基本（ギャップを考慮） */
+      }
+
+      /* 選択肢ボタンのホバー時のスタイル */
+      .choice-button:hover {
+        border-color: var(--primary-color); /* ボーダー色変更 */
+        box-shadow: var(--shadow); /* シャドウ変更 */
+      }
+
+      /* 選択された選択肢ボタンのスタイル */
+      .choice-button.selected {
+        background-color: var(--primary-color); /* 背景色変更 */
+        color: white; /* テキスト色変更 */
+        border-color: var(--primary-color); /* ボーダー色変更 */
+        box-shadow: var(--shadow); /* シャドウ変更 */
+      }
+
+      /* ボタングループのスタイル */
+      .button-group {
+        display: flex; /* Flexboxで配置 */
+        justify-content: center; /* 中央揃え */
+        gap: 20px; /* 要素間の隙間 */
+        margin-top: 20px; /* 上部マージン */
+      }
+
+      /* 送信ボタンと次へボタンのスタイル */
+      #submit-button,
+      #next-button {
+        background-color: var(--primary-color); /* 背景色 */
+        color: white; /* テキスト色 */
+        border: none; /* ボーダーなし */
+        border-radius: 8px; /* 角丸 */
+        padding: 12px 25px; /* パディング */
+        font-size: 1.1em; /* フォントサイズ */
+        cursor: pointer; /* カーソルをポインターに */
+        transition: background-color 0.3s ease, box-shadow 0.3s ease; /* アニメーション */
+        box-shadow: var(--shadow); /* シャドウ */
+      }
+
+      /* ボタンのホバー時のスタイル */
+      #submit-button:hover,
+      #next-button:hover {
+        background-color: #3a7bd5; /* 背景色変更 */
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* シャドウ変更 */
+      }
+
+      /* フィードバックエリアのスタイル */
+      #feedback-area {
+        margin-top: 30px; /* 上部マージン */
+        padding: 20px; /* パディング */
+        border-radius: 8px; /* 角丸 */
+        transition: background-color 0.5s ease; /* アニメーション */
+        min-height: 50px; /* 空の場合でも高さを確保 */
+        display: flex; /* Flexboxで配置 */
+        flex-direction: column; /* 垂直方向に並べる */
+        justify-content: center; /* 垂直方向の中央揃え */
+        align-items: center; /* 水平方向の中央揃え */
+      }
+
+      /* 正解時のフィードバックエリアの背景色 */
+      #feedback-area.correct {
+        background-color: var(--correct-bg);
+      }
+
+      /* 不正解時のフィードバックエリアの背景色 */
+      #feedback-area.incorrect {
+        background-color: var(--incorrect-bg);
+      }
+
+      /* フィードバックテキストのスタイル */
+      #feedback-text {
+        font-size: 1.3em; /* フォントサイズ */
+        font-weight: bold; /* 太字 */
+        margin-bottom: 15px; /* 下部マージン */
+      }
+
+      /* 解説テキストのスタイル */
+      #explanation-text {
+        font-size: 1.0em; /* フォントサイズを1.1emから1.0emに変更 */
+        line-height: 1.7; /* 行の高さ */
+        color: var(--text-color); /* テキスト色 */
+        text-align: left; /* 左揃え */
+        width: 100%; /* 幅を100%に */
+      }
+
+      /* 次へボタンの初期状態（非表示） */
+      #next-button {
+        display: none;
+        background-color: var(--secondary-color); /* 補助的な色 */
+      }
+
+      /* 次へボタンのホバー時のスタイル */
+      #next-button:hover {
+        background-color: #40c0a0; /* 背景色変更 */
+      }
+
+      /* KaTeXのスタイリング */
+      .katex {
+        font-size: 1.2em !important; /* KaTeXのフォントサイズ */
+      }
+      .katex-display {
+        margin: 10px 0 !important; /* KaTeXの数式ブロックのマージン */
+      }
+
+      /* レスポンシブ対応 */
+      @media (max-width: 600px) {
+        body {
+          padding: 10px; /* パディングを減らす */
+        }
+
+        .container {
+          padding: 20px; /* パディングを減らす */
+          margin-top: 0; /* 中央揃えのためマージンを調整 */
+        }
+
+        #question-text {
+          font-size: 1.3em; /* フォントサイズを小さく */
+          margin-bottom: 15px; /* マージンを減らす */
+        }
+
+        .choice-button {
+          font-size: 1em; /* フォントサイズを小さく */
+          padding: 10px 15px; /* パディングを減らす */
+          max-width: 100%; /* スマホでは1列表示 */
+        }
+
+        #choices-container {
+          gap: 10px; /* ギャップを減らす */
+        }
+
+        #submit-button,
+        #next-button {
+          padding: 10px 20px; /* パディングを減らす */
+          font-size: 1em; /* フォントサイズを小さく */
+        }
+
+        #feedback-text {
+          font-size: 1.1em; /* フォントサイズを小さく */
+        }
+
+        #explanation-text {
+          font-size: 0.9em; /* フォントサイズを1emから0.9emに変更 */
+        }
+      }
+    </style>
+    <!-- KaTeXのCSSとJSの読み込み -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" xintegrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" xintegrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"></script>
+    <!-- KaTeXのauto-renderは手動レンダリングのため使用しない -->
+  </head>
+  <body>
+    <div class="container">
+      <div id="question-area">
+        <div id="question-text"></div>
+        <div id="choices-container"></div>
+      </div>
+
+      <div class="button-group">
+        <button id="submit-button">解答する</button>
+        <button id="next-button">次へ進む</button>
+      </div>
+
+      <div id="feedback-area">
+        <div id="feedback-text"></div>
+        <div id="explanation-text"></div>
+      </div>
+    </div>
+
+    <script>
+      let questions = []; // 全問題データを格納する配列
+      let currentQuestionIndex = -1; // 現在表示中の問題のインデックス
+      let selectedChoices = new Set(); // ユーザーが選択した選択肢の集合
+      let isAnswered = false; // 問題が解答済みかどうかを示すフラグ
+
+      // DOM要素の取得
+      const questionTextElem = document.getElementById("question-text");
+      const choicesContainerElem = document.getElementById("choices-container");
+      const submitButton = document.getElementById("submit-button");
+      const nextButton = document.getElementById("next-button");
+      const feedbackArea = document.getElementById("feedback-area");
+      const feedbackText = document.getElementById("feedback-text");
+      const explanationText = document.getElementById("explanation-text");
+
+      /**
+       * LaTeX文字列をKaTeXでレンダリングし、指定された要素に表示するヘルパー関数
+       * インライン数式 ($...$) とディスプレイ数式 ($$...$$) を処理します。
+       * @param {HTMLElement} element - 数式をレンダリングするHTML要素
+       * @param {string} text - 数式を含むテキストコンテンツ
+       */
+      function renderKaTeX(element, text) {
+        // インライン数式 ($...$) を処理
+        let processedText = text.replace(/\$(.*?)\$/g, (match, p1) => {
+          try {
+            return katex.renderToString(p1, { throwOnError: false, displayMode: false });
+          } catch (e) {
+            console.error("KaTeX rendering error (inline):", e, "Expression:", p1);
+            return `<span style="color: red;">[数式エラー: ${p1}]</span>`; // エラー表示
+          }
+        });
+
+        // ディスプレイ数式 ($$...$$) を処理
+        processedText = processedText.replace(/\$\$(.*?)\$\$/g, (match, p1) => {
+          try {
+            return katex.renderToString(p1, { displayMode: true, throwOnError: false });
+          } catch (e) {
+            console.error("KaTeX rendering error (display):", e, "Expression:", p1);
+            return `<span style="color: red;">[数式エラー: ${p1}]</span>`; // エラー表示
+          }
+        });
+        element.innerHTML = processedText;
+      }
+
+      /**
+       * 問題データをquestions.jsonから読み込む非同期関数
+       */
+      async function loadQuestions() {
+        try {
+          const response = await fetch("questions.json"); // questions.jsonをフェッチ
+          if (!response.ok) {
+            // HTTPエラーが発生した場合
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          questions = await response.json(); // JSONとしてパース
+          if (questions.length === 0) {
+            // 問題がない場合
+            alert("questions.jsonに問題がありません。");
+            return;
+          }
+          displayRandomQuestion(); // 最初の問題をランダムに表示
+        } catch (error) {
+          console.error("問題の読み込み中にエラーが発生しました:", error);
+          questionTextElem.textContent = "問題の読み込みに失敗しました。"; // エラーメッセージ表示
+        }
+      }
+
+      /**
+       * 配列をシャッフルする関数（Fisher-Yatesシャッフルアルゴリズム）
+       * @param {Array} array - シャッフルする配列
+       * @returns {Array} シャッフルされた新しい配列
+       */
+      function shuffleArray(array) {
+        const shuffled = [...array]; // 元の配列を破壊しないようにコピーを作成
+        for (let i = shuffled.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]; // 要素を交換
+        }
+        return shuffled;
+      }
+
+      /**
+       * ランダムな問題を抽選して表示する関数
+       */
+      function displayRandomQuestion() {
+        isAnswered = false; // 解答済みフラグをリセット
+        selectedChoices.clear(); // 選択状態をリセット
+
+        // Feedbackエリアをリセット
+        feedbackArea.classList.remove("correct", "incorrect"); // 背景色を削除
+        feedbackText.textContent = ""; // フィードバックテキストをクリア
+        explanationText.textContent = ""; // 解説テキストをクリア
+        nextButton.style.display = "none"; // 「次へ進む」ボタンを非表示に
+        submitButton.style.display = "inline-block"; // 「解答する」ボタンを表示
+        submitButton.disabled = false; // 「解答する」ボタンを有効化
+
+        // ランダムなインデックスを生成（ただし、前回と同じ問題は避ける）
+        let newIndex;
+        do {
+          newIndex = Math.floor(Math.random() * questions.length);
+        } while (questions.length > 1 && newIndex === currentQuestionIndex); // 問題が1つしかない場合はdo-whileループをスキップ
+        currentQuestionIndex = newIndex; // 現在の問題インデックスを更新
+
+        const question = questions[currentQuestionIndex]; // 現在の問題データを取得
+        renderKaTeX(questionTextElem, question.question); // 問題文を表示 (KaTeXでレンダリング)
+        choicesContainerElem.innerHTML = ""; // 既存の選択肢をクリア
+
+        // 選択肢をシャッフル
+        const shuffledChoices = shuffleArray(question.choices);
+
+        // シャッフルされた選択肢ボタンを動的に生成
+        shuffledChoices.forEach((choice) => {
+          const button = document.createElement("button");
+          // 選択肢にもKaTeXを適用
+          renderKaTeX(button, choice); // 選択肢のテキストをKaTeXでレンダリング
+          button.classList.add("choice-button"); // CSSクラスを追加
+          button.dataset.choice = choice; // 選択肢のテキストをデータ属性に保存
+          // event.currentTargetを使用するように変更
+          button.addEventListener("click", toggleChoice); // クリックイベントリスナーを追加
+          choicesContainerElem.appendChild(button); // コンテナに追加
+        });
+      }
+
+      /**
+       * 選択肢の選択/解除をトグルする関数
+       * @param {Event} event - クリックイベントオブジェクト
+       */
+      function toggleChoice(event) {
+        if (isAnswered) return; // 解答済みの場合は選択肢の変更を許可しない
+        // event.currentTarget を使用して、イベントリスナーがアタッチされた要素（ボタン）を取得
+        const button = event.currentTarget; 
+        const choice = button.dataset.choice; // データ属性から選択肢のテキストを取得
+
+        if (selectedChoices.has(choice)) {
+          selectedChoices.delete(choice); // セットから削除
+          button.classList.remove("selected"); // "selected"クラスを削除
+        } else {
+          selectedChoices.add(choice); // セットに追加
+          button.classList.add("selected"); // "selected"クラスを追加
+        }
+      }
+
+      /**
+       * 解答判定を行う関数
+       */
+      function checkAnswer() {
+        if (isAnswered) return; // 既に解答済みの場合は二重送信を防ぐ
+        isAnswered = true; // 解答済みフラグをセット
+        submitButton.disabled = true; // 解答ボタンを無効化
+
+        const question = questions[currentQuestionIndex]; // 現在の問題データを取得
+        const correctChoices = new Set(question.correct); // 正解の選択肢の集合
+
+        // 選択された選択肢の集合と正解の集合が完全に一致するかを判定
+        const isCorrect =
+          selectedChoices.size === correctChoices.size && // 選択数と正解数が同じか
+          [...selectedChoices].every((choice) => correctChoices.has(choice)); // 全ての選択肢が正解に含まれているか
+
+        // 正誤に応じたフィードバック表示
+        if (isCorrect) {
+          feedbackArea.classList.add("correct");
+          feedbackArea.classList.remove("incorrect");
+          feedbackText.textContent = "正解！";
+        } else {
+          feedbackArea.classList.add("incorrect");
+          feedbackArea.classList.remove("correct");
+          feedbackText.textContent = "不正解...";
+        }
+
+        // 解説を表示 (KaTeXでレンダリング)
+        renderKaTeX(explanationText, question.exp);
+
+        // 「次へ進む」ボタンを表示
+        nextButton.style.display = "inline-block";
+
+        // 選択肢ボタンを無効化し、正解の選択肢にハイライト（見た目の変更）
+        Array.from(choicesContainerElem.children).forEach((button) => {
+          button.style.pointerEvents = "none"; // クリックイベントを無効化
+          if (correctChoices.has(button.dataset.choice)) {
+            // 正解の選択肢であればボーダーとシャドウを変更
+            button.style.borderColor = "green";
+            button.style.boxShadow = "0 0 8px rgba(0, 128, 0, 0.4)";
+          }
+        });
+      }
+
+      // イベントリスナーの設定
+      submitButton.addEventListener("click", checkAnswer); // 「解答する」ボタンのクリックイベント
+      nextButton.addEventListener("click", displayRandomQuestion); // 「次へ進む」ボタンのクリックイベント
+
+      // アプリケーションの初期ロード
+      loadQuestions();
+    </script>
+  </body>
+</html>

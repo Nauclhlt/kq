@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>サイト目次</title>
+    <style>
+        :root {
+            --primary-color: #4a90e2; /* 主要な色（青） */
+            --secondary-color: #50e3c2; /* 補助的な色（エメラルドグリーン） */
+            --text-color: #333; /* 標準のテキスト色 */
+            --background-color: #f0f2f5; /* 全体の背景色 */
+            --card-background: #ffffff; /* カードの背景色 */
+            --shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 標準のシャドウ */
+            --correct-bg: #e6ffe6; /* 正解時の背景色（薄い緑） */
+            --incorrect-bg: #ffe6e6; /* 不正解時の背景色（薄い赤） */
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        header {
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 15px 0;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            box-sizing: border-box;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 1.8em;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .page-link-card {
+            background-color: var(--card-background);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .page-link-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .page-link-card a {
+            display: block;
+            padding: 15px 20px;
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.1em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .page-link-card a:hover {
+            background-color: rgba(0, 0, 0, 0.03);
+        }
+
+        .page-link-card a::after {
+            content: '›'; /* 右向きの記号 */
+            font-size: 1.5em;
+            color: var(--secondary-color);
+        }
+
+        footer {
+            margin-top: auto; /* コンテンツが少ない時にフッターを下に固定 */
+            padding-top: 30px;
+            color: #777;
+            font-size: 0.9em;
+            text-align: center;
+        }
+
+        /* スマートフォン向けのデザイン調整 */
+        @media (max-width: 600px) {
+            body {
+                padding: 15px;
+            }
+
+            header {
+                border-radius: 0; /* スマホで画面幅いっぱいに */
+                margin-bottom: 20px;
+                padding: 10px 0;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            .page-link-card a {
+                padding: 12px 18px;
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>化学クイズのような何か</h1>
+    </header>
+
+    <div class="container">
+        <div class="page-link-card">
+            <a href="manufacture_metal/play.html">
+                <span>無機: 製法・金属イオン</span>
+            </a>
+        </div>
+
+        <div class="page-link-card">
+            <a href="manufacture_metal/play.html">
+                <span>ないよ</span>
+            </a>
+        </div>
+
+        <div class="page-link-card">
+            <a href="manufacture_metal/play.html">
+                <span>ないよ</span>
+            </a>
+        </div>
+
+        <div class="page-link-card">
+            <a href="manufacture_metal/play.html">
+                <span>ないよ</span>
+            </a>
+        </div>
+        <div class="page-link-card">
+            <a href="manufacture_metal/play.html">
+                <span>ないよ</span>
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; All rights reserved.</p>
+    </footer>
+</body>
+</html>
