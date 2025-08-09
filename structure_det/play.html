@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>構造決定問題集</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+</head>
+<body>
+    <header id="main-header">
+        <h1 class="page-title">構造決定問題集</h1>
+    </header>
+
+    <main id="main-content">
+        
+        
+        
+        <div class="question-container">
+            <span class="question-number">$1.$</span>
+            <p class="question-text">
+                　炭素および水素のみからなる有機化合物 $A$ がある. 一定量の $A$ を完全燃焼させたところ, 二酸化炭素が $13.2\ \mathrm{mg}$, 水が $8.1\ \mathrm{mg}$ 生じた.<br>
+                また, $A$ は気体であり, $10.0\ \mathrm{g}$ の $A$ を $27 \mathrm{C\degree}$ で体積が $8.3\ \mathrm{L}$ の体積が変わらず質量を無視できる容器に入れたところ, その気体は $1.0\times 10^5\ \mathrm{Pa}$ の圧力を示した.<br>
+                (1) $A$ の組成式および分子式を求めよ.<br>
+                　$A$ に塩素 $\mathrm{Cl_2}$ を加え, 光を短時間照射した. このとき, 反応によって生成する有機化合物を $B$ とする.<br>
+                (2) $B$ の名称および構造式を示せ.<br>
+                (3) $B$ が生成する反応において, 生成物のうち $B$ でないものの名称および化学式を示せ.
+            </p>
+            <details>
+                <summary>解答を表示</summary>
+                <div class="answer-content">
+                    <p class="answer-text">
+                        (1) 元素分析. 二酸化炭素, 水の質量のうち $A$ に含まれていた炭素, 水素の質量はそれぞれ $3.6\ \mathrm{mg}$, $0.9\ \mathrm{mg}$ である.<br>
+                        したがって, 炭素と水素の個数の比は $1:3$ であるため, $A$ の組成式は $\mathrm{CH_3}$.<br>
+                        次に, 分子式を決定する. $A$ の分子量を $M$ とすると, 条件より
+                        $$1.0\times 10^5\times 8.3=\frac{10.0}{M}\times 8.3\times 10^3\times 300$$
+                        $M=30$ が得られる. よって, $A$ の分子式は $\mathrm{C_2H_6}$ である.<br>
+                        (2) 以下の反応が起こる.
+                        $$\mathrm{C_2H_6+Cl_2\rightarrow C_2H_5Cl+HCl}$$
+                        生成物の名称はクロロエタンである. また, 構造式は以下.
+                        <img class="str-img" src="./str/C_2_H_5_Cl.png">
+                        (3) 塩化水素 $\mathrm{HCl}$.
+                    </p>
+                </div>
+            </details>
+        </div>
+
+
+        <div class="question-container">
+            <span class="question-number">$2.$</span>
+            <p class="question-text">
+                　炭素, 水素, 酸素からなり, 炭素の数が $4$ 個かつ酸素を $1$ 個だけ含む有機化合物 $A, B, C$ がある.<br>
+                これらに関して, 次のことがわかっている.<br>
+                (ア) $A$ を酸化すると別の有機化合物 $D$ が得られ, $D$ はそれ以上酸化されない.<br>
+                (イ) $B, C$ は酸化されない<br>
+                (ウ) $D$ に $B$ を加えて加熱したところ, 有機化合物 $E$ および水 $\mathrm{H_2O}$ を生成物とする可逆反応が起こり, 平衡状態に達した.<br>
+                (エ) $E$ は芳香性を持ち, 水に溶けにくい<br>
+                (オ) $C$ に水中で水酸化ナトリウムとヨウ素を反応させると黄色沈殿 $F$ が生じた<br>
+                (カ) $A, B, C$ の炭素間の結合はすべて単結合である
+            </p>
+
+            <p class="question-text">
+                (1) $A$ としてあり得る構造式をすべて示せ.<br>
+                (2) $B$ としてあり得る構造式をすべて示せ.<br>
+                (3) (ウ) の反応において, 平衡を移動させ, $E$ の収率を上げるためにはどのようにすればよいか. 簡潔に述べよ.<br>
+                (4) $C$ の構造式を示せ. また, $F$ の名称と化学式を示せ.<br>
+            </p>
+            <details>
+                <summary>解答を表示</summary>
+                <div class="answer-content">
+                    <p class="answer-text">
+                        (1) $A$ は $1$ 回のみ酸化されるため, $A, D$ はアルデヒドとカルボン酸または2級アルコールとケトンのどちらかである.<br>
+                        (ウ)は $D$ と $B$ が脱水縮合してエステルが生成する反応であるため, $D$ はカルボン酸であり, $A$ はアルデヒドであることがわかる.<br>
+                        よって, $A$ としてあり得る構造式は以下の $2$ 通り.
+                        <img class="str-img" src="./str/C_3_H_7_CHO_1.png">
+                        <img class="str-img" src="./str/C_3_H_7_CHO_2.png">
+                        (2) $B$ はアルコールである. $B$ は酸化されないことから, 3級アルコール.<br>
+                        よって, $B$ としてあり得る構造式は以下.
+                        <img class="str-img" src="./str/C_4_H_9_OH_3.png">
+                        (3) 生成物である水 $\mathrm{H_2O}$ を取り除けばよい.<br>
+                        (4) $C$ は酸化されず, (オ)からアセチル基を持つケトンであることがわかる.<br>
+                        よって, $C$ の構造式は以下.
+                        <img class="str-img" src="./str/emk.png">
+                        また, $F$ の名称はヨードホルムであり, 化学式は $\mathrm{CHI_3}$ である.
+                    </p>
+                </div>
+            </details>
+        </div>
+
+
+
+    </main>
+
+    <footer id="main-footer">
+        <p>&copy; 2025 All rights reserved.</p>
+    </footer>
+
+    <script>
+        // DOMContentLoaded イベントでKaTeXを初期化
+        document.addEventListener("DOMContentLoaded", function() {
+            // KaTeXの自動レンダリング設定
+            renderMathInElement(document.body, {
+                // デフォルトのデリミタを設定
+                delimiters: [
+                    {left: "$$", right: "$$", display: true}, // ディスプレイモードの数式 (ブロック要素)
+                    {left: "$", right: "$", display: false}   // インラインモードの数式 (テキスト内)
+                ],
+                // textcomp パッケージの記号を有効にする（エラー抑制のため）
+                throwOnError : false
+            });
+        });
+    </script>
+</body>
+</html>

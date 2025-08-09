@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>金属イオン&沈殿の色</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+  body {
+    margin: 0;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #fff;
+    text-align: center;
+    transition: background-color 1.5s ease;
+  }
+  #content {
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 1em 2em;
+    border-radius: 1em;
+  }
+  #formula {
+    font-size: 3em;
+    margin-bottom: 0.5em;
+  }
+  #name {
+    font-size: 1.5em;
+  }
+</style>
+</head>
+<body>
+<div id="content">
+  <div id="formula"></div>
+  <div id="name"></div>
+</div>
+<script>
+const ITEMS = [
+  {formula: "\\mathrm{Cu}^{2+}", name: "硫酸銅(II)水溶液: 青色", color: "#0000ff"},
+  {formula: "\\mathrm{Fe}^{2+}", name: "硫酸鉄(II)水溶液: 淡緑色", color: "#90ee90"},
+  {formula: "\\mathrm{Fe}^{3+}", name: "塩化鉄(III)水溶液: 黄褐色", color: "#cc9900"},
+  {formula: "[\\mathrm{Cu}(\\mathrm{NH}_3)_4]^{2+}", name: "テトラアンミン銅(II)イオン: 深青色", color: "#00008b"},
+  {formula: "\\mathrm{Ni}^{2+}", name: "硫酸ニッケル(II)水溶液: 緑色", color: "#008000"},
+  {formula: "\\mathrm{Cr}^{3+}", name: "硫酸クロム(III)水溶液: 緑色", color: "#006400"},
+  {formula: "\\mathrm{MnO}_4^{-}", name: "過マンガン酸カリウム水溶液: 赤紫色", color: "#800080"},
+  {formula: "\\mathrm{Cr}_2\\mathrm{O}_7^{2-}", name: "二クロム酸カリウム水溶液: 橙色", color: "#ff8c00"},
+  {formula: "\\mathrm{Fe}(\\mathrm{OH})_2", name: "水酸化鉄(II): 緑白色沈殿", color: "#c0d9af"},
+  {formula: "\\mathrm{Fe}(\\mathrm{OH})_3", name: "水酸化鉄(III): 赤褐色沈殿", color: "#a52a2a"},
+  {formula: "\\mathrm{Cu}(\\mathrm{OH})_2", name: "水酸化銅(II): 青白色沈殿", color: "#add8e6"},
+  {formula: "\\mathrm{Cr}(\\mathrm{OH})_3", name: "水酸化クロム(III): 灰緑色沈殿", color: "#556b2f"},
+  {formula: "\\mathrm{Ni}(\\mathrm{OH})_2", name: "水酸化ニッケル(II): 灰緑色沈殿", color: "#556b2f"},
+  {formula: "\\mathrm{AgCl}", name: "塩化銀: 白色沈殿", color: "#ffffff"},
+  {formula: "\\mathrm{PbCl}_2", name: "塩化鉛(II): 白色沈殿", color: "#ffffff"},
+  {formula: "\\mathrm{Hg}_2\\mathrm{Cl}_2", name: "塩化水銀(I): 白色沈殿", color: "#ffffff"},
+  {formula: "\\mathrm{BaSO}_4", name: "硫酸バリウム: 白色沈殿", color: "#ffffff"},
+  {formula: "\\mathrm{Ag}_2\\mathrm{CrO}_4", name: "クロム酸銀: 赤褐色沈殿", color: "#a52a2a"},
+  {formula: "\\mathrm{BaCrO}_4", name: "クロム酸バリウム: 黄色沈殿", color: "#ffff00"},
+  {formula: "\\mathrm{AgI}", name: "ヨウ化銀: 黄色沈殿", color: "#ffd700"},
+  {formula: "\\mathrm{Li}", name: "炎色反応: 赤色", color: "#ff0000"},
+  {formula: "\\mathrm{Na}", name: "炎色反応: 黄色", color: "#ffff00"},
+  {formula: "\\mathrm{K}", name: "炎色反応: 紫色", color: "#800080"},
+  {formula: "\\mathrm{Cu}", name: "炎色反応: 緑色", color: "#00ff00"},
+  {formula: "\\mathrm{Ca}", name: "炎色反応: 橙色", color: "#ffa500"},
+  {formula: "\\mathrm{Sr}", name: "炎色反応: 紅色", color: "#ff2400"},
+  {formula: "\\mathrm{Ba}", name: "炎色反応: 黄緑色", color: "#adff2f"}
+];
+
+let index = 0;
+function showItem(i) {
+  const item = ITEMS[i];
+  document.body.style.backgroundColor = item.color;
+  document.getElementById('formula').innerHTML = `\\(${item.formula}\\)`;
+  // 数字ローマン体変換 + 酸化数 (II), (III) 等はそのまま表示
+  document.getElementById('name').innerHTML = item.name;//.replace(/([A-Z][a-z]?(?:_\{[^}]+\})?(?:\^\{[^}]+\})?\d*)/g, "\\\\mathrm{$1}").replace(/(\\\\mathrm\{[^}]+\})/g, "\\($1\\)").replace(/\((I{1,3}|IV|V|VI{1,3}|IX|X)\)/g, "($1)");
+  MathJax.typesetPromise();
+}
+
+function nextRandom() {
+  index = Math.floor(Math.random() * ITEMS.length);
+  showItem(index);
+}
+
+document.body.addEventListener('click', nextRandom);
+nextRandom();
+</script>
+</body>
+</html>
