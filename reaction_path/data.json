@@ -1,0 +1,157 @@
+{
+  "aspirin_synthesis": {
+    "title": "アセチルサリチル酸の製法",
+    "start": { "name": "サリチル酸", "formula": "\\(\\mathrm{C_7H_6O_3}\\)" },
+    "steps": [
+      {
+        "answer": { "name": "アセチルサリチル酸", "formula": "\\(\\mathrm{C_9H_8O_4}\\)" },
+        "condition": "無水酢酸・濃\\(\\mathrm{H_2SO_4}\\)",
+        "info": "サリチル酸のヒドロキシ基を無水酢酸でアセチル化する。",
+        "choices": ["アセチルサリチル酸", "フェノール", "サリチル酸"]
+      }
+    ],
+    "end": { "name": "アセチルサリチル酸", "formula": "\\(\\mathrm{C_9H_8O_4}\\)" }
+  },
+  
+  "salicylic_acid_synthesis": {
+    "title": "サリチル酸の製法",
+    "start": { "name": "ナトリウムフェノキシド", "formula": "\\(\\mathrm{C_6H_5ONa}\\)" },
+    "steps": [
+      {
+        "answer": { "name": "サリチル酸ナトリウム", "formula": "\\(\\mathrm{C_6H_4(OH)COONa}\\)" },
+        "condition": "\\(\\mathrm{CO_2}\\), 高温高圧",
+        "info": "ナトリウムフェノキシドに二酸化炭素を作用させてサリチル酸ナトリウムを生成。",
+        "choices": ["サリチル酸ナトリウム", "サリチル酸", "フェノール"]
+      },
+      {
+        "answer": { "name": "サリチル酸", "formula": "\\(\\mathrm{C_6H_4(OH)COOH}\\)" },
+        "condition": "弱酸で酸処理",
+        "info": "サリチル酸ナトリウムを弱酸で処理し、サリチル酸を遊離。",
+        "choices": ["サリチル酸", "サリチル酸ナトリウム", "フェノール"]
+      }
+    ],
+    "end": { "name": "サリチル酸", "formula": "\\(\\mathrm{C_6H_4(OH)COOH}\\)" }
+  },
+
+  "phenol_nitration": {
+    "title": "フェノールのニトロ化",
+    "start": { "name": "フェノール", "formula": "\\(\\mathrm{C_6H_5OH}\\)" },
+    "steps": [
+      {
+        "answer": { "name": "2-ニトロフェノール", "formula": "\\(\\mathrm{C_6H_4(NO_2)OH}\\)" },
+        "condition": "希硝酸",
+        "info": "フェノールを希硝酸でニトロ化し主に2-ニトロフェノールが得られる。",
+        "choices": ["2-ニトロフェノール", "ニトロベンゼン", "フェノール"]
+      }
+    ],
+    "end": { "name": "2-ニトロフェノール", "formula": "\\(\\mathrm{C_6H_4(NO_2)OH}\\)" }
+  },
+
+  "aniline_diazo_coupling": {
+    "title": "アニリンのジアゾ化とカップリング",
+    "start": { "name": "アニリン", "formula": "\\(\\mathrm{C_6H_7N}\\)" },
+    "steps": [
+      {
+        "answer": { "name": "ジアゾニウム塩", "formula": "\\(\\mathrm{C_6H_5N_2^+}\\)" },
+        "condition": "\\(\\mathrm{NaNO_2}\\), 酸性, 0-5℃",
+        "info": "アニリンを亜硝酸ナトリウムと酸性条件で冷却しジアゾニウム塩を合成。",
+        "choices": ["ジアゾニウム塩", "アセトン", "サリチル酸"]
+      },
+      {
+        "answer": { "name": "アゾ化合物", "formula": "\\(\\mathrm{C_6H_5N=NC_6H_5}\\)" },
+        "condition": "フェノールとカップリング",
+        "info": "ジアゾニウム塩をフェノールと反応させてアゾ化合物を合成。",
+        "choices": ["アゾ化合物", "ニトロサリチル酸", "フェノール"]
+      }
+    ],
+    "end": { "name": "アゾ化合物", "formula": "\\(\\mathrm{C_6H_5N=NC_6H_5}\\)" }
+  },
+
+  "benzene_nitration": {
+    "title": "ベンゼンのニトロ化",
+    "start": { "name": "ベンゼン", "formula": "\\(\\mathrm{C_6H_6}\\)" },
+    "steps": [
+      {
+        "answer": { "name": "ニトロベンゼン", "formula": "\\(\\mathrm{C_6H_5NO_2}\\)" },
+        "condition": "\\(\\mathrm{HNO_3} + \\mathrm{H_2SO_4}\\)",
+        "info": "ベンゼンを混酸でニトロ化しニトロベンゼンを得る。",
+        "choices": ["ニトロベンゼン", "アニリン", "フェノール"]
+      }
+    ],
+    "end": { "name": "ニトロベンゼン", "formula": "\\(\\mathrm{C_6H_5NO_2}\\)" }
+  },
+
+  "benzene_to_phenol_via_diazo": {
+    "title": "ベンゼンからフェノールの製法（ジアゾ化経由）",
+    "start": { "name": "ベンゼン", "formula": "\\(\\mathrm{C_6H_6}\\)" },
+    "steps": [
+      {
+        "answer": { "name": "ニトロベンゼン", "formula": "\\(\\mathrm{C_6H_5NO_2}\\)" },
+        "condition": "混酸ニトロ化",
+        "info": "ベンゼンを混酸でニトロ化。",
+        "choices": ["ニトロベンゼン", "アニリン", "フェノール"]
+      },
+      {
+        "answer": { "name": "アニリン", "formula": "\\(\\mathrm{C_6H_7N}\\)" },
+        "condition": "Sn/HCl 還元",
+        "info": "ニトロベンゼンをスズと塩酸で還元してアニリンに。",
+        "choices": ["アニリン", "ニトロベンゼン", "ベンゼン"]
+      },
+      {
+        "answer": { "name": "ジアゾニウム塩", "formula": "\\(\\mathrm{C_6H_5N_2^+}\\)" },
+        "condition": "\\(\\mathrm{NaNO_2}\\), 酸性, 0-5℃",
+        "info": "アニリンをジアゾ化してジアゾニウム塩を合成。",
+        "choices": ["ジアゾニウム塩", "アニリン", "フェノール"]
+      },
+      {
+        "answer": { "name": "フェノール", "formula": "\\(\\mathrm{C_6H_5OH}\\)" },
+        "condition": "加熱加水分解",
+        "info": "ジアゾニウム塩を加熱加水分解してフェノールを得る。",
+        "choices": ["フェノール", "アニリン", "ベンゼン"]
+      }
+    ],
+    "end": { "name": "フェノール", "formula": "\\(\\mathrm{C_6H_5OH}\\)" }
+  },
+
+  "esterification": {
+    "title": "エステルの合成（脱水縮合）",
+    "start": { "name": "酢酸", "formula": "\\(\\mathrm{CH_3COOH}\\)" },
+    "steps": [
+      {
+        "answer": { "name": "酢酸エチル", "formula": "\\(\\mathrm{CH_3COOCH_2CH_3}\\)" },
+        "condition": "エタノール, 硫酸(触媒), 加熱",
+        "info": "酢酸とエタノールを硫酸の存在下で加熱し、エステル（酢酸エチル）を合成。",
+        "choices": ["酢酸エチル", "酢酸", "エタノール"]
+      }
+    ],
+    "end": { "name": "酢酸エチル", "formula": "\\(\\mathrm{CH_3COOCH_2CH_3}\\)" }
+  },
+
+  "alcohol_oxidation": {
+    "title": "一次アルコールの酸化",
+    "start": { "name": "エタノール", "formula": "\\(\\mathrm{CH_3CH_2OH}\\)" },
+    "steps": [
+      {
+        "answer": { "name": "酢酸", "formula": "\\(\\mathrm{CH_3COOH}\\)" },
+        "condition": "\\(\\mathrm{K_2Cr_2O_7}\\), \\(\\mathrm{H_2SO_4}\\), 加熱",
+        "info": "一次アルコール（エタノール）を強酸性クロム酸カリウムで酸化して酢酸を得る。",
+        "choices": ["酢酸", "アセトアルデヒド", "エタノール"]
+      }
+    ],
+    "end": { "name": "酢酸", "formula": "\\(\\mathrm{CH_3COOH}\\)" }
+  },
+
+  "amide_synthesis": {
+    "title": "アミドの合成",
+    "start": { "name": "アセチルクロリド", "formula": "\\(\\mathrm{CH_3COCl}\\)" },
+    "steps": [
+      {
+        "answer": { "name": "アセトアミド", "formula": "\\(\\mathrm{CH_3CONH_2}\\)" },
+        "condition": "アンモニア, 低温",
+        "info": "アセチルクロリドをアンモニアと反応させてアセトアミドを合成。",
+        "choices": ["アセトアミド", "酢酸", "アセトアルデヒド"]
+      }
+    ],
+    "end": { "name": "アセトアミド", "formula": "\\(\\mathrm{CH_3CONH_2}\\)" }
+  }
+}

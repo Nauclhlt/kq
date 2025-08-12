@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>反応経路パズル</title>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: linear-gradient(135deg, #ffefe6, #e6f7ff);
+    margin: 0; padding: 24px;
+    display: flex; justify-content: center; align-items: center; min-height: 100vh;
+  }
+  .container {
+    background: #fffefccc;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+    width: 95vw; max-width: 720px;
+    text-align: center;
+  }
+  h1 {
+    margin-bottom: 16px;
+    color: #222;
+  }
+  .reaction-step {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+    gap: 12px;
+    margin-bottom: 16px;
+    position: relative;
+  }
+  .compound {
+    min-width: 110px;
+    background: #fafafa;
+    border-radius: 8px;
+    padding: 10px 16px;
+    box-shadow: inset 0 -2px 3px #eee;
+    color: #444;
+    font-weight: 700;
+  }
+  .arrow-container {
+    position: relative;
+    min-width: 240px;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .condition {
+    font-size: 0.75rem;
+    color: #666;
+    margin-bottom: 4px;
+    white-space: nowrap;
+  }
+  .arrow-line {
+    position: relative;
+    width: 100%;
+    height: 3px;
+    background: #ff7aa2;
+    border-radius: 1.5px;
+  }
+  .arrow-line::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(60%, -50%);
+    border: 8px solid transparent;
+    border-left-color: #ff7aa2;
+    width: 0;
+    height: 0;
+  }
+  #choices {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .choice {
+    padding: 10px 18px;
+    background: #fff;
+    border-radius: 999px;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.06);
+    cursor: pointer;
+    user-select: none;
+    font-weight: 700;
+    transition: background 0.25s ease, transform 0.15s ease;
+  }
+  .choice:hover {
+    background: #c7f3ff;
+    transform: translateY(-3px);
+  }
+  .choice.correct {
+    background: #b6ffda;
+    border: 2px solid #7fe0b3;
+  }
+  .choice.wrong {
+    background: #ffecec;
+  }
+  #info {
+    margin-top: 24px;
+    background: #fffdf5;
+    border-radius: 10px;
+    border: 1px solid #eee;
+    padding: 16px 20px;
+    color: #333;
+    min-height: 80px;
+  }
+  #nextBtn, #menuBtn {
+    margin-top: 18px;
+    padding: 10px 16px;
+    border-radius: 12px;
+    border: none;
+    background: #ff7aa2;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  #nextBtn:disabled {
+    background: #f8b9ca;
+    cursor: default;
+  }
+  #menuBtn {
+    display: none;
+  }
+  /* メニュー画面 */
+  #menu {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  #menu button {
+    background: #ff9db6;
+    color: #fff;
+    border: none;
+    padding: 14px 20px;
+    font-weight: 700;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.25s ease;
+  }
+  #menu button:hover {
+    background: #ff7aa2;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- メニュー画面 -->
+    <div id="menu" aria-label="パズル選択メニュー">
+      <h1>反応経路パズル メニュー</h1>
+      <!-- ボタンはJSで生成 -->
+    </div>
+
+    <!-- パズル画面 -->
+    <div id="puzzle" style="display:none;">
+      <h1 id="puzzle-title"></h1>
+
+      <div id="reaction" class="reaction-step" aria-live="polite"></div>
+
+      <div id="choices" aria-label="生成物の選択肢"></div>
+
+      <div id="info" aria-live="polite" aria-atomic="true"></div>
+
+      <button id="nextBtn" disabled>次へ</button>
+      <button id="menuBtn">メニューに戻る</button>
+    </div>
+
+  </div>
+
+<script>
+  const menuEl = document.getElementById('menu');
+  const puzzleEl = document.getElementById('puzzle');
+  const puzzleTitleEl = document.getElementById('puzzle-title');
+  const reactionEl = document.getElementById('reaction');
+  const choicesEl = document.getElementById('choices');
+  const infoEl = document.getElementById('info');
+  const nextBtn = document.getElementById('nextBtn');
+  const menuBtn = document.getElementById('menuBtn');
+
+  let currentStep = 0;
+  let answered = false;
+  let currentPuzzle = null;
+  let PUZZLES = null;
+
+  // JSONファイルをfetchして読み込み
+  async function loadData() {
+    try {
+      const res = await fetch('./data.json');
+      if(!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+      PUZZLES = await res.json();
+      createMenuButtons();
+    } catch(e) {
+      menuEl.innerHTML = '<p style="color:red;">データの読み込みに失敗しました。data.jsonが正しいか確認してください。</p>';
+      console.error(e);
+    }
+  }
+
+  // メニューにパズルボタンを生成
+  function createMenuButtons() {
+    menuEl.innerHTML = '<h1>反応経路パズル メニュー</h1>';
+    for (const key in PUZZLES) {
+      const btn = document.createElement('button');
+      btn.textContent = PUZZLES[key].title;
+      btn.setAttribute('data-puzzle', key);
+      btn.onclick = () => startPuzzle(key);
+      menuEl.appendChild(btn);
+    }
+  }
+
+  function shuffle(arr) {
+    for(let i=arr.length-1; i>0; i--){
+      const j = Math.floor(Math.random()*(i+1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }
+
+  function renderReaction() {
+    reactionEl.innerHTML = '';
+
+    // 左側化合物
+    const leftCompound = document.createElement('div');
+    leftCompound.className = 'compound';
+    if(currentStep === 0){
+      leftCompound.innerHTML = currentPuzzle.start.formula + `<br><small>${currentPuzzle.start.name}</small>`;
+    } else {
+      const prevStep = currentPuzzle.steps[currentStep -1];
+      leftCompound.innerHTML = prevStep.answer.formula + `<br><small>${prevStep.answer.name}</small>`;
+    }
+    reactionEl.appendChild(leftCompound);
+
+    // 矢印＋条件（終了時は表示しない）
+    if(currentStep < currentPuzzle.steps.length){
+      const arrowContainer = document.createElement('div');
+      arrowContainer.className = 'arrow-container';
+      arrowContainer.innerHTML = `
+        <div class="condition">${currentPuzzle.steps[currentStep].condition}</div>
+        <div class="arrow-line"></div>
+      `;
+      reactionEl.appendChild(arrowContainer);
+    }
+
+    // 右側化合物 or ？（クリア後は非表示）
+    if(currentStep < currentPuzzle.steps.length){
+      const rightCompound = document.createElement('div');
+      rightCompound.className = 'compound';
+      if(answered){
+        const step = currentPuzzle.steps[currentStep];
+        rightCompound.innerHTML = step.answer.formula + `<br><small>${step.answer.name}</small>`;
+      } else {
+        rightCompound.textContent = '？';
+        rightCompound.style.color = '#bbb';
+      }
+      reactionEl.appendChild(rightCompound);
+    }
+
+    MathJax.typesetPromise([reactionEl]);
+  }
+
+  function renderChoices() {
+    choicesEl.innerHTML = '';
+    if(currentStep >= currentPuzzle.steps.length){
+      return; // クリア済みは選択肢非表示
+    }
+    const choices = shuffle([...currentPuzzle.steps[currentStep].choices]);
+    choices.forEach(choice => {
+      const btn = document.createElement('button');
+      btn.className = 'choice';
+      btn.textContent = choice;
+      btn.onclick = () => selectChoice(btn, choice);
+      choicesEl.appendChild(btn);
+    });
+  }
+
+  function selectChoice(btn, choice) {
+    if(answered) return;
+
+    if(choice === currentPuzzle.steps[currentStep].answer.name){
+      btn.classList.add('correct');
+      answered = true;
+      infoEl.textContent = currentPuzzle.steps[currentStep].info;
+      nextBtn.disabled = false;
+      renderReaction();
+    } else {
+      btn.classList.add('wrong');
+      setTimeout(() => btn.classList.remove('wrong'), 700);
+    }
+  }
+
+  nextBtn.onclick = () => {
+    currentStep++;
+    if(currentStep >= currentPuzzle.steps.length){
+      infoEl.textContent = "すべてクリア！お疲れさまでした！";
+      nextBtn.disabled = true;
+      menuBtn.style.display = "inline-block";
+    } else {
+      infoEl.textContent = '';
+      nextBtn.disabled = true;
+    }
+    answered = false;
+    renderReaction();
+    renderChoices();
+  };
+
+  menuBtn.onclick = () => {
+    puzzleEl.style.display = 'none';
+    menuEl.style.display = 'flex';
+    menuBtn.style.display = 'none';
+    infoEl.textContent = '';
+    nextBtn.disabled = true;
+  };
+
+  function startPuzzle(key){
+    currentPuzzle = PUZZLES[key];
+    currentStep = 0;
+    answered = false;
+    puzzleTitleEl.textContent = currentPuzzle.title;
+    menuEl.style.display = 'none';
+    puzzleEl.style.display = 'block';
+    menuBtn.style.display = 'none';
+    infoEl.textContent = '';
+    nextBtn.disabled = true;
+    renderReaction();
+    renderChoices();
+  }
+
+  // ページロード時にデータ読み込み
+  loadData();
+</script>
+</body>
+</html>
