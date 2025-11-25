@@ -1,0 +1,158 @@
+/* Google Fonts - 'Poppins' for a modern look */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+    --primary-color: #007bff; /* モダンな青 */
+    --background-color: #f4f7f6; /* 明るい背景 */
+    --card-background: #ffffff; /* カードの背景 */
+    --text-color: #333;
+    --success-color: #28a745; /* 緑 */
+    --error-color: #dc3545; /* 赤 */
+    --hover-color: #e9ecef;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+.quiz-container {
+    background-color: var(--card-background);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    max-width: 800px;
+    width: 100%;
+    transition: transform 0.3s ease-in-out;
+}
+
+h1 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+/* --- 問題文・表のスタイル --- */
+#question-area p {
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-bottom: 15px;
+    padding-left: 10px;
+    border-left: 4px solid var(--primary-color);
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-bottom: 25px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden; /* 角丸を効かせる */
+}
+
+.data-table th, .data-table td {
+    padding: 12px 15px;
+    text-align: left;
+}
+
+.data-table th {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.data-table tr:nth-child(even) {
+    background-color: var(--hover-color);
+}
+
+/* --- 選択肢ボタンのスタイル --- */
+#answer-area {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.choice-button {
+    background-color: var(--card-background);
+    color: var(--text-color);
+    border: 2px solid var(--primary-color);
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    text-align: center;
+    white-space: normal; /* テキストが長くなっても対応 */
+}
+
+.choice-button:hover:not(.correct):not(.incorrect):not(:disabled) {
+    background-color: #e6f0ff;
+    transform: translateY(-2px);
+}
+
+.choice-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* --- フィードバックとハイライト --- */
+.correct {
+    background-color: var(--success-color) !important;
+    color: white !important;
+    border-color: var(--success-color) !important;
+}
+
+.incorrect {
+    background-color: var(--error-color) !important;
+    color: white !important;
+    border-color: var(--error-color) !important;
+}
+
+.highlight {
+    box-shadow: 0 0 10px 3px var(--success-color); /* 正解を特に強調 */
+    border: 3px solid white;
+}
+
+/* --- 次の問題ボタン --- */
+#next-button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin-top: 30px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-weight: 600;
+}
+
+#next-button:hover {
+    background-color: #0056b3;
+}
+
+.hidden {
+    display: none !important;
+}
+
+#feedback-area {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.2em;
+    font-weight: 700;
+}
